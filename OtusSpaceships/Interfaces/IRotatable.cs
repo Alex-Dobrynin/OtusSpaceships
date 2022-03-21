@@ -1,6 +1,4 @@
-﻿using OtusSpaceships.Models;
-
-namespace OtusSpaceships.Interfaces
+﻿namespace OtusSpaceships.Interfaces
 {
     public interface IRotatable
     {

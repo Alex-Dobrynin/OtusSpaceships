@@ -6,7 +6,6 @@ using Moq;
 
 using OtusSpaceships.Commands;
 using OtusSpaceships.Interfaces;
-using OtusSpaceships.Models;
 
 using Xunit;
 
@@ -77,7 +76,7 @@ namespace OtusSpaceships.Tests
         [InlineData(15, 360, 15)]
         public void MoveExecute_ShouldApplyNewPosition(int direction, int velocity, int expected)
         {
-            _movableMock.SetupProperty(r => r.Direction,  direction );
+            _movableMock.SetupProperty(r => r.Direction, direction);
             _movableMock.SetupGet(r => r.AmountOfDirections).Returns(AmountOfDirections);
             _movableMock.SetupGet(r => r.AngularVelocity).Returns(velocity);
 
