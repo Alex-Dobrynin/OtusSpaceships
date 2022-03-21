@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtusSpaceships", "OtusSpaceships\OtusSpaceships.csproj", "{218BFF7E-5478-46DB-8AE5-D09D4AAA821A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtusSpaceships.Tests", "OtusSpaceships.Tests\OtusSpaceships.Tests.csproj", "{A845EA5A-BB56-4FEA-AABE-4A362FA9AB3D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{218BFF7E-5478-46DB-8AE5-D09D4AAA821A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{218BFF7E-5478-46DB-8AE5-D09D4AAA821A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{218BFF7E-5478-46DB-8AE5-D09D4AAA821A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{218BFF7E-5478-46DB-8AE5-D09D4AAA821A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A845EA5A-BB56-4FEA-AABE-4A362FA9AB3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A845EA5A-BB56-4FEA-AABE-4A362FA9AB3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A845EA5A-BB56-4FEA-AABE-4A362FA9AB3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A845EA5A-BB56-4FEA-AABE-4A362FA9AB3D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D2ABCB7D-FB17-45B7-AFA6-C6C6E30DE7BF}
+	EndGlobalSection
+EndGlobal
