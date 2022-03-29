@@ -26,13 +26,13 @@ namespace OtusSpaceships.Tests
         public void MoveExecute_ShouldThrowException_WhenGettingPosition()
         {
             _movableMock.SetupGet(m => m.Position).Throws<InvalidOperationException>();
-            _movableMock.SetupGet(m => m.Speed).Returns(new Vector(5, 2));
+            _movableMock.SetupGet(m => m.Velocity).Returns(new Vector(5, 2));
 
             var movable = _movableMock.Object;
 
             var command = new MoveCommand(movable);
 
-            var result = () => command.Execute();
+            var result = command.Execute;
             result.Should().Throw<InvalidOperationException>();
         }
 
@@ -40,13 +40,13 @@ namespace OtusSpaceships.Tests
         public void MoveExecute_ShouldThrowException_WhenSettingPosition()
         {
             _movableMock.SetupSet(m => m.Position).Throws<InvalidOperationException>();
-            _movableMock.SetupGet(m => m.Speed).Returns(new Vector(5, 2));
+            _movableMock.SetupGet(m => m.Velocity).Returns(new Vector(5, 2));
 
             var movable = _movableMock.Object;
 
             var command = new MoveCommand(movable);
 
-            var result = () => command.Execute();
+            var result = command.Execute;
             result.Should().Throw<InvalidOperationException>();
         }
 
@@ -54,13 +54,13 @@ namespace OtusSpaceships.Tests
         public void MoveExecute_ShouldThrowException_WhenGettingSpeed()
         {
             _movableMock.SetupProperty(m => m.Position, new Point(12, 5));
-            _movableMock.SetupGet(m => m.Speed).Throws<InvalidOperationException>();
+            _movableMock.SetupGet(m => m.Velocity).Throws<InvalidOperationException>();
 
             var movable = _movableMock.Object;
 
             var command = new MoveCommand(movable);
 
-            var result = () => command.Execute();
+            var result = command.Execute;
             result.Should().Throw<InvalidOperationException>();
         }
 
@@ -71,7 +71,7 @@ namespace OtusSpaceships.Tests
         public void MoveExecute_ShouldApplyNewPosition(double[] position, double[] speed, double[] expected)
         {
             _movableMock.SetupProperty(m => m.Position, new Point(position[0], position[1]));
-            _movableMock.SetupGet(m => m.Speed).Returns(new Vector(speed[0], speed[1]));
+            _movableMock.SetupGet(m => m.Velocity).Returns(new Vector(speed[0], speed[1]));
 
             var movable = _movableMock.Object;
 
