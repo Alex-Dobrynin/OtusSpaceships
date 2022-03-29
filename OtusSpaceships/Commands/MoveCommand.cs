@@ -2,7 +2,7 @@
 
 namespace OtusSpaceships.Commands
 {
-    public class MoveCommand
+    public class MoveCommand : ICommand
     {
         private readonly IMovable _movable;
 
@@ -13,7 +13,7 @@ namespace OtusSpaceships.Commands
 
         public void Execute()
         {
-            _movable.Position += _movable.Speed;
+            _movable.Position += _movable.Velocity;
         }
     }
 }

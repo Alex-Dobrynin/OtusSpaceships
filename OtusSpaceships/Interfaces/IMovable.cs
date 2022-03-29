@@ -5,6 +5,6 @@ namespace OtusSpaceships.Interfaces
     public interface IMovable
     {
         public Point Position { get; set; }
-        public Vector Speed { get; }
+        public Vector Velocity { get; set; }
     }
 }
