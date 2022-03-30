@@ -15,7 +15,7 @@ namespace OtusSpaceships.Tests
     {
         private const int AmountOfDirections = 360;
 
-        private readonly Mock<IRotatable> _rotatableMock = new Mock<IRotatable>();
+        private readonly Mock<IRotatable> _movableMock = new Mock<IRotatable>();
 
         public RotateCommandTests()
         {
@@ -25,45 +25,45 @@ namespace OtusSpaceships.Tests
         [Fact]
         public void RotateExecute_ShouldThrowException_WhenGettingDirection()
         {
-            _rotatableMock.SetupGet(r => r.Direction).Throws<InvalidOperationException>();
-            _rotatableMock.SetupGet(r => r.AmountOfDirections).Returns(AmountOfDirections);
-            _rotatableMock.SetupGet(r => r.AngularVelocity).Returns(5);
+            _movableMock.SetupGet(r => r.Direction).Throws<InvalidOperationException>();
+            _movableMock.SetupGet(r => r.AmountOfDirections).Returns(AmountOfDirections);
+            _movableMock.SetupGet(r => r.AngularVelocity).Returns(5);
 
-            var rotatable = _rotatableMock.Object;
+            var rotatable = _movableMock.Object;
 
             var command = new RotateCommand(rotatable);
 
-            var result = command.Execute;
+            var result = () => command.Execute();
             result.Should().Throw<InvalidOperationException>();
         }
 
         [Fact]
         public void RotateExecute_ShouldThrowException_WhenSettingDirection()
         {
-            _rotatableMock.SetupSet(r => r.Direction).Throws<InvalidOperationException>();
-            _rotatableMock.SetupGet(r => r.AmountOfDirections).Returns(AmountOfDirections);
-            _rotatableMock.SetupGet(r => r.AngularVelocity).Returns(5);
+            _movableMock.SetupSet(r => r.Direction).Throws<InvalidOperationException>();
+            _movableMock.SetupGet(r => r.AmountOfDirections).Returns(AmountOfDirections);
+            _movableMock.SetupGet(r => r.AngularVelocity).Returns(5);
 
-            var rotatable = _rotatableMock.Object;
+            var rotatable = _movableMock.Object;
 
             var command = new RotateCommand(rotatable);
 
-            var result = command.Execute;
+            var result = () => command.Execute();
             result.Should().Throw<InvalidOperationException>();
         }
 
         [Fact]
         public void MoveExecute_ShouldThrowException_WhenGettingAngularVelocity()
         {
-            _rotatableMock.SetupProperty(r => r.Direction, 15);
-            _rotatableMock.SetupGet(r => r.AmountOfDirections).Returns(AmountOfDirections);
-            _rotatableMock.SetupGet(r => r.AngularVelocity).Throws<InvalidOperationException>();
+            _movableMock.SetupProperty(r => r.Direction, 15);
+            _movableMock.SetupGet(r => r.AmountOfDirections).Returns(AmountOfDirections);
+            _movableMock.SetupGet(r => r.AngularVelocity).Throws<InvalidOperationException>();
 
-            var rotatable = _rotatableMock.Object;
+            var rotatable = _movableMock.Object;
 
             var command = new RotateCommand(rotatable);
 
-            var result = command.Execute;
+            var result = () => command.Execute();
             result.Should().Throw<InvalidOperationException>();
         }
 
@@ -76,11 +76,11 @@ namespace OtusSpaceships.Tests
         [InlineData(15, 360, 15)]
         public void MoveExecute_ShouldApplyNewPosition(int direction, int velocity, int expected)
         {
-            _rotatableMock.SetupProperty(r => r.Direction, direction);
-            _rotatableMock.SetupGet(r => r.AmountOfDirections).Returns(AmountOfDirections);
-            _rotatableMock.SetupGet(r => r.AngularVelocity).Returns(velocity);
+            _movableMock.SetupProperty(r => r.Direction, direction);
+            _movableMock.SetupGet(r => r.AmountOfDirections).Returns(AmountOfDirections);
+            _movableMock.SetupGet(r => r.AngularVelocity).Returns(velocity);
 
-            var rotatable = _rotatableMock.Object;
+            var rotatable = _movableMock.Object;
 
             var command = new RotateCommand(rotatable);
 
