@@ -2,7 +2,7 @@
 
 namespace OtusSpaceships.Commands
 {
-    public class RotateCommand
+    public class RotateCommand : ICommand
     {
         private readonly IRotatable _rotatable;
 
